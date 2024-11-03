@@ -30,6 +30,7 @@ i128 = []
 strict = []
 force_unix_path_separator = [] # Deprecated
 const-generics = []
+path_fix = []
 scale_info = ["scale-info/derive"]
 
 [package.metadata.docs.rs]

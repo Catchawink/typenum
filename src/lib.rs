@@ -69,7 +69,15 @@
 use core::cmp::Ordering;
 
 mod generated {
+    #[cfg(feature = "path_fix")]
+    include!(concat!(env!("OUT_DIR"), "\\op.rs"));
+    #[cfg(not(feature = "path_fix"))]
     include!(concat!(env!("OUT_DIR"), "/op.rs"));
+
+    #[cfg(feature = "path_fix")]
+    include!(concat!(env!("OUT_DIR"), "\\consts.rs"));
+
+    #[cfg(not(feature = "path_fix"))]
     include!(concat!(env!("OUT_DIR"), "/consts.rs"));
 
     #[cfg(feature = "const-generics")]
