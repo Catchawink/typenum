@@ -107,6 +107,11 @@ fn main() {
 
     let mut f = File::create(&dest).unwrap();
 
+    println!("cargo::rustc-check-cfg=cfg(host_windows)");
+    if cfg!(target_os = "windows") {
+        println!("cargo:rustc-cfg=host_windows");
+    } 
+    
     no_std();
     force_unix_path_separator();
 
